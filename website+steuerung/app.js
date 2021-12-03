@@ -13,7 +13,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 
-
+/////////// Daten in Datei/Datenbank speichern \\\\\\\\\
 
 
 /////////// HTTP Requests erstellen \\\\\\\\\\\
