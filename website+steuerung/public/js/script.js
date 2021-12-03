@@ -1,0 +1,1 @@
+// standart JS erstellen der Diagramme
