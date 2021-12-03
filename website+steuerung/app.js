@@ -14,7 +14,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 /////////// Daten in Datei/Datenbank speichern \\\\\\\\\
-
+//https://www.it-swarm.com.de/de/javascript/einfache-moeglichkeit-json-unter-node.js-zu-speichern/1071101333/
 
 /////////// HTTP Requests erstellen \\\\\\\\\\\
 
