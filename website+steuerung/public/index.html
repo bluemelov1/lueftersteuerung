@@ -16,12 +16,29 @@
         <header>
             <h1 class="headline" >Lüftersteuerung</h1>
         </header>
-        <section>
-            <!-- Rounded switch -->
-            <label class="switch">
-                <input type="checkbox">
-                <span class="slider round"></span>
-            </label>
+        <section class="einstellungen">
+            <div class="switch">
+                <input id="automatic" type="checkbox" >
+                <label for="automatic"> Automatik Ein/Aus</label>
+            </div>
+            <div class="werteInputs">
+                <table>
+                    <tr>
+                        <td><label for="max_temp_inside">Maximaltemperatur Haus: </label></td>
+                        <td><input type="number" name="Maximaltemperatur Haus" id="max_temp_inside"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="min_temp_outside">Minimaltemperatur Wintergarten: </label></td>
+                        <td><input type="number" name="Minimaltemperatur Wintergarten" id="min_temp_outside"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="differenz">Temperatur Differenz: </label> </td>
+                        <td><input id="diffferenz" name="Temperatur Differenz" type="number"></td>
+                    </tr>
+                </table>
+                
+            
+            </div>
 
         </section>
         <footer>
