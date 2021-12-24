@@ -4,12 +4,22 @@
 const express = require('express');
 const app = express();
 const path = require('path');
+const { send } = require('process');
 
 app.use(express.static(path.join(__dirname, 'public')));
 
 
 
 ////////////// Daten Einlesen \\\\\\\\\\\\\\\
+var automatic = false;
+var min_wintergarten = 23;
+var max_wohnraum = 25;
+var differenz = 5;
+
+
+/// Logik für schaltungstechnik bei Automatikmodus hinzufügen 
+
+
 
 
 
@@ -18,11 +28,58 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 /////////// HTTP Requests erstellen \\\\\\\\\\\
 
+app.get("/data", function(req, res) {
+    res.format({
+        "application/json": function(){
+            res.send(dataToJson())
+        }
+    })
+})
+
+app.post("/automatic/on", function(req, res){
+    automatic = true;
+    res.sendStatus(200);
+})
+
+app.post("/automatic/off", function(req, res){
+    automatic = false;
+    res.sendStatus(200);
+})
+
+app.post("min_wintergarten/:temp", function(req, res){
+    if(req.params["temp"] >15 && req.params["temp"]<50){
+        min_wintergarten = req.params["temp"];
+        res.sendStatus(200);
+    } else{
+        req.sendStatus(400);
+    }
+})
+
+app.post("max_haus/:temp", function(req, res){
+    if(req.params["temp"] >15 && req.params["temp"]<50){
+        max_wohnraum = req.params["temp"];
+        res.sendStatus(200);
+    } else{
+        req.sendStatus(400);
+    }
+})
+
+app.post("differenz/:temp", function(req, res){
+    if(req.params["temp"] >0){
+        differenz = req.params["temp"];
+        res.sendStatus(200);
+    } else{
+        req.sendStatus(400);
+    }
+})
+
+function dataToJson(){
+    return {"automatic":automatic, "min_wintergarten":min_wintergarten, "max_wohnraum":max_wohnraum, "differenz":differenz};
+}
 
 
 
-
-
+// Requests Für Innentemperatur und Außentemperatur einfügen 
 
 
 /////////// Server initialisieren \\\\\\\\\\\\
