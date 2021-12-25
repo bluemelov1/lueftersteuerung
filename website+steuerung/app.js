@@ -11,7 +11,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 ////////////// Daten Einlesen \\\\\\\\\\\\\\\
-var automatic = false;
+var automatic = true;
 var min_wintergarten = 23;
 var max_wohnraum = 25;
 var differenz = 5;
