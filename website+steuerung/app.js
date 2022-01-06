@@ -58,6 +58,9 @@ app.get("/data", function(req, res) {
     })
 })
 
+
+//TODO mögliche einzelne abfrage von Temperaturwerten (eigentlich sinnlos, temperatur ändert sich nur über längeren zeitraum und dann kann man auch seite neu laden)
+
 app.post("/data", function(req, res) {
     //TODO Sicherheitscheck ob Werte Sinn ergeben
     
