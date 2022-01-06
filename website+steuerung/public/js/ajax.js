@@ -43,29 +43,27 @@ window.onload = function () {
 
 
 function datenSenden(){
-    let mode = "on";
-    if(anzeige_automatik.checked){
-        mode = "on";
-    } else {
-        mode = "off";
-    }
-    const xhttp1 = new XMLHttpRequest();
-    xhttp1.onload = function(){
-        console.log(this.response);
-    }
-    xhttp1.open("POST", "automatic/" + mode);
-    xhttp1.send();
+    let min_wintergarten = anzeige_min_wintergarten.value;
+    let max_wohnraum = anzeige_max_wohnraum.value;
+    let differenz = anzeige_differenz.value;
+    let automatik = anzeige_automatik.checked;
+    let data = {};
+    data["automatic"] = automatik;
+    data["min_wintergarten"] = min_wintergarten;
+    data["max_wohnraum"] = max_wohnraum;
+    data["differenz"] = differenz;
 
+    console.log(data);
 
-    differenz = anzeige_differenz.value;
-    const xhttp2 = new XMLHttpRequest();
-    xhttp2.onload = function (){
-        console.log(this.response);
+    const xhttp = new XMLHttpRequest();
+    xhttp.onload = function () {
+        console.log(xhttp.response);
     }
-    xhttp2.open("POST", "differenz/"+differenz);
-    xhttp2.send();
-
+    xhttp.open("POST", "data");
+    xhttp.setRequestHeader('Content-type', "application/json");
+    xhttp.send(JSON.stringify(data, null, ' '));
 }
+
 
 
 

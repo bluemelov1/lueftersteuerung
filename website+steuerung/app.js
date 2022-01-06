@@ -8,6 +8,8 @@ const { send } = require('process');
 var fs = require('fs');
 app.use(express.static(path.join(__dirname, 'public')));
 
+const bodyParser = require('body-parser');
+app.use( bodyParser.json() );
 
 
 ////////////// Daten Einlesen \\\\\\\\\\\\\\\
@@ -57,9 +59,29 @@ app.get("/data", function(req, res) {
 })
 
 app.post("/data", function(req, res) {
+    //TODO Sicherheitscheck ob Werte Sinn ergeben
     
+    console.log(req.body.differenz);
+    console.log(req.body.automatic);
+    console.log(req.body.min_wintergarten);
+    console.log(req.body.min_wintergarten);
+
+    automatic = req.body.automatic;
+    differenz = req.body.differenz;
+    min_wintergarten = req.body.min_wintergarten;
+    max_wohnraum = req.body.max_wohnraum;
+
+    res.sendStatus(200);
 })
 
+
+function dataToJson(){
+    return {"automatic":automatic, "min_wintergarten":min_wintergarten, "max_wohnraum":max_wohnraum, "differenz":differenz, "temp_wohnraum": temp_wohnraum, "temp_wintergarten": temp_wintergarten};
+}
+
+
+
+//////////unused manuell change posts
 app.post("/automatic/on", function(req, res){
     automatic = true;
     res.sendStatus(200);
@@ -97,9 +119,7 @@ app.post("differenz/:temp", function(req, res){
     }
 })
 
-function dataToJson(){
-    return {"automatic":automatic, "min_wintergarten":min_wintergarten, "max_wohnraum":max_wohnraum, "differenz":differenz, "temp_wohnraum": temp_wohnraum, "temp_wintergarten": temp_wintergarten};
-}
+
 
 
 
