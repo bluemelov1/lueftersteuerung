@@ -23,3 +23,9 @@ table{
   border-collapse: separate;
   border-spacing: 10px;
 }
+
+#transport{
+  margin: 5px;
+  padding: 5px;
+  width: fit-content;
+}

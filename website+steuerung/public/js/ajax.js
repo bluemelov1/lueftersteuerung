@@ -58,6 +58,25 @@ function datenSenden(){
     const xhttp = new XMLHttpRequest();
     xhttp.onload = function () {
         console.log(xhttp.response);
+        console.log(xhttp.response === "OK");
+
+        if(xhttp.response === "OK"){
+            let anzeige = document.getElementById("transport");
+            anzeige.style.backgroundColor = "lightgreen";
+            anzeige.textContent = "Neue Werte erfolgreich übernommen";
+            setTimeout(function(){
+                let anzeige1 = document.getElementById("transport");
+                anzeige1.style.backgroundColor = "";
+                anzeige1.textContent = "";
+            },5000);
+        } else {
+            let anzeige = document.getElementById("transport");
+            anzeige.style.backgroundColor = "lightred";
+            alert("Fehler bei der Übertragung")
+            setTimeout(function(){
+                location.reload();
+            },5000);
+        }
     }
     xhttp.open("POST", "data");
     xhttp.setRequestHeader('Content-type', "application/json");

@@ -37,7 +37,7 @@ function temperaturenEinlesen(){
     }
 }
 
-/// Logik für schaltungstechnik bei Automatikmodus hinzufügen 
+
 
 
 
@@ -62,7 +62,7 @@ app.get("/data", function(req, res) {
 //TODO mögliche einzelne abfrage von Temperaturwerten (eigentlich sinnlos, temperatur ändert sich nur über längeren zeitraum und dann kann man auch seite neu laden)
 
 app.post("/data", function(req, res) {
-    //TODO Sicherheitscheck ob Werte Sinn ergeben
+    //TODO Sicherheitscheck ob Werte Sinn ergeben wenn nicht code 400 zurückgeben
     
     console.log(req.body.differenz);
     console.log(req.body.automatic);
@@ -84,7 +84,7 @@ function dataToJson(){
 
 
 
-//////////unused manuell change posts
+//////////unused manuell change posts   falls freigabe im internet entfernen!
 app.post("/automatic/on", function(req, res){
     automatic = true;
     res.sendStatus(200);
