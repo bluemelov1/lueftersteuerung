@@ -38,8 +38,11 @@ function temperaturenEinlesen(){
 }
 
 
-
-
+const spawn = require("child_process").spawn;
+const pythonProcess = spawn('python',["test.py", 7.43]);
+pythonProcess.stdout.on('data', (data) => {
+    console.log("Python:" + data)
+});
 
 
 
@@ -138,3 +141,6 @@ const port = 3000;
 app.listen(port, () => {
     console.log(`App listening at http://localhost: ${port}`);
 });
+
+
+
