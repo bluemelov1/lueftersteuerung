@@ -22,7 +22,7 @@
         <section class="einstellungen">
             <div class="switch">
                 <input id="automatic" type="checkbox" >
-                <label for="automatic"> Automatik Ein/Aus</label>
+                <label for="automatic">Automatik Ein/Aus</label>
             </div>
             <div class="werteInputs">
                 <table>
@@ -41,14 +41,19 @@
                 </table>
                 <button id="submit_button" onclick="datenSenden()">Werte übernehmen!</button>
                 <br>
-                <h6>Aktuelle Innentemperatur:</h6>
-                <p id="temp_inside">23.233</p>
-                <h6>Aktuelle Außentemperatur:</h6>
-                <p id="temp_outside">23.233</p>
+                <p>Aktuelle Innentemperatur:</p>
+                <p id="temp_inside">0.00</p>
+                <p>Aktuelle Außentemperatur:</p>
+                <p id="temp_outside">0.00</p>
+
+                <button id="activate_button" onclick="on()">Aktivieren</button>
+                <button id="deactivate_button" onclick="off()">Deaktivieren</button>
             </div>
                 <p id="transport"></p>
             <div>
-
+                <p id="active"></p>
+                <br/>
+                <p id="deactive"></p>
             </div>
         </section>
         <footer>

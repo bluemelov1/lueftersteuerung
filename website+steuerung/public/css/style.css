@@ -17,8 +17,18 @@ section {
   justify-content: space-around;
   flex-direction: column;
 }
-
-
+ label{
+   font-size: 2em;
+ }
+ button{
+   size: 2em;
+ }
+p{
+  font-size: 2em;
+}
+input{
+  size: 2em;
+}
 table{
   border-collapse: separate;
   border-spacing: 10px;

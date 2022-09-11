@@ -6,5 +6,4 @@
 // Temperaturen Haus/Wintergarten zu Tag, Woche, Monat (mit Aktivzeiten des Ventilators)
 
 // Manuelle aktivierung des Lüfters
-// Differenz, {min/max}_temp_{wintergarten/haus} einstellen
 
